@@ -3,8 +3,8 @@ public class Wydarzenie {
     private String nazwa;
     private String data;
     private String miejsce;
-    private int maxLiczbaMiejsc;
-    private int dostepneMiejsca;
+    private int maxLiczbaMiejsc = 100;
+    private int dostepneMiejsca  = 0;
     private double cena;
 
     String getNazwa() {
@@ -36,7 +36,7 @@ public class Wydarzenie {
     }
 
     void setMaxLiczbaMiejsc(int maxLiczbaMiejsc) {
-        this.maxLiczbaMiejsc = 100;
+        this.maxLiczbaMiejsc = maxLiczbaMiejsc;
     }
 
     int getDostepneMiejsca() {
@@ -44,7 +44,7 @@ public class Wydarzenie {
     }
 
     void setDostepneMiejsca(int dostepneMiejsca) {
-        this.dostepneMiejsca = 0;
+        this.dostepneMiejsca = dostepneMiejsca;
     }
 
     double getCena() {
@@ -57,20 +57,28 @@ public class Wydarzenie {
 
     public Wydarzenie(String nazwa, double cena) {
         this.nazwa = nazwa;
-        this.cena = cena;
+        this.setCena(cena);
     }
 
     public Wydarzenie(String nazwa, double cena, String data) {
         this.nazwa = nazwa;
-        this.cena = cena;
+        this.setCena(cena);
         this.data = data;
     }
 
     public Wydarzenie(String nazwa, double cena, String data, String miejsce) {
         this.nazwa = nazwa;
-        this.cena = cena;
+        this.setCena(cena);
         this.data = data;
         this.miejsce = miejsce;
+    }
+
+    public String toString() {
+        return this.nazwa + this.data + this.miejsce;
+    }
+
+    public void zarezerwujMiejsce() {
+        this.dostepneMiejsca++;
     }
 
 

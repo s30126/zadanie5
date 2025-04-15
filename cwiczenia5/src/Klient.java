@@ -5,7 +5,7 @@ public class Klient {
     private String imie;
     private String nazwisko;
     private String email;
-    private ArrayList<Wydarzenie> listaRezerwacji;
+    private ArrayList<Wydarzenie> listaRezerwacji = new ArrayList<>();
 
     String getImie() {
         return this.imie;
@@ -50,6 +50,20 @@ public class Klient {
         this.nazwisko = nazwisko;
         this.email = email;
         this.listaRezerwacji = listaRezerwacji;
+    }
+
+    public void dodajRezerwacje (Wydarzenie wydarzenie) {
+        listaRezerwacji.add(wydarzenie);
+    }
+
+    public void wyswietlRezerwacje () {
+        for (Wydarzenie wydarzenie : listaRezerwacji) {
+            System.out.println(wydarzenie);
+        }
+    }
+
+    public void anulujRezerwacje (Wydarzenie wydarzenie) {
+        listaRezerwacji.remove(wydarzenie);
     }
 
 
